@@ -8,7 +8,7 @@ export let signUpSchema = Joi.object({
         .required(),
     age: Joi.number().required(),
     email: Joi.string()
-        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+        .email(),
     password: Joi.string()
         .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
     
@@ -16,7 +16,7 @@ export let signUpSchema = Joi.object({
 
 export let signInSchema = Joi.object({
     email: Joi.string()
-        .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+        .email(),
     password: Joi.string()
         .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
 })
